@@ -20,7 +20,13 @@ public class Chain : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             //collision.gameObject.SetActive(false);
-            collision.gameObject.GetComponent<PhysicMove>().isDead = true;
+            var player = collision.gameObject.GetComponent<Player>();
+            
+            player.HP -=10;
+            if(player.HP<=0)
+            {
+                player.isDead = true;
+            }
         }
     }
     
