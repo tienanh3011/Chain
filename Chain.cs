@@ -47,9 +47,15 @@ public class Chain : MonoBehaviour
             var player = collision.gameObject.GetComponent<Player>();
             
             player.HP -=10;
-            if(player.HP<=0)
+            if (player.HP <= 0)
             {
                 player.isDead = true;
+                GameHelper.instance.SoundController.PlaySound(SoundName.Death, false);
+            }
+            else
+
+            {
+                GameHelper.instance.SoundController.PlaySound(SoundName.Hurt, false);
             }
         }
     }
